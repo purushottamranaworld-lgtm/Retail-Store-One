@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Service — Retail Store One (in.kiranapro.pos)</title>
+  <meta name="description" content="Official Terms of Service for Retail Store One (in.kiranapro.pos). Read the terms governing offline-first local IndexedDB storage, user backup responsibility, zero-knowledge AES-256-GCM Google Drive AppData sync, GST tax invoicing compliance, and permitted business use." />
+  <style>
+    :root {
+      --primary: #166534;
+      --primary-dark: #14532d;
+      --primary-mid: #15803d;
+      --primary-light: #dcfce7;
+      --primary-tint: #f0fdf4;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --text-secondary: #44403c;
+      --muted: #57534e;
+      --border: #e7e5e4;
+      --code-bg: #f5f5f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.72;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background-color: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.87em;
+      color: var(--primary-dark);
+      border: 1px solid var(--border);
+    }
+
+    nav {
+      background-color: var(--primary-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #f59e0b;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: #dcfce7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-mid) 100%);
+      color: #ffffff;
+      padding: 56px 20px 64px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: var(--accent-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      color: #ecfdf5;
+      font-size: 1.08rem;
+    }
+
+    .meta-bar {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #d1fae5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    main {
+      padding: 44px 0 80px;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 36px;
+    }
+
+    .toc h2 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      border: none;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 32px;
+      font-size: 0.94rem;
+    }
+
+    .toc li {
+      margin-bottom: 6px;
+    }
+
+    .toc a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    h2 {
+      font-size: 1.48rem;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+      color: var(--text-secondary);
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    ul li strong {
+      color: var(--text);
+    }
+
+    .callout {
+      background: var(--primary-tint);
+      border: 1px solid var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .callout.amber {
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      background-color: #1c1917;
+      color: #d6d3d1;
+      padding: 44px 20px 32px;
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    footer h3 {
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #a8a29e;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #86efac;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .copyright {
+      max-width: 1040px;
+      margin: 28px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid #292524;
+      font-size: 0.84rem;
+      color: #a8a29e;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .toc ol {
+        columns: 1;
+      }
+      section {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html" class="brand">
+        <span class="brand-dot"></span>
+        Retail Store One
+      </a>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="#acceptance">1. Acceptance</a>
+        <a href="#offline-backups">2. Backups &amp; Zero-Knowledge</a>
+        <a href="#tax-compliance">3. GST &amp; Accounting</a>
+        <a href="#google-services">4. Google Services</a>
+        <a href="#liability">5. Warranties &amp; Liability</a>
+        <a href="#governing-law">6. Governing Law</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="badge">User Agreement &bull; Offline-First POS &amp; Store Management</div>
+      <h1>Terms of Service for Retail Store One</h1>
+      <p>
+        Please read these Terms of Service carefully before installing, accessing, or using <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>, "the Application").
+      </p>
+      <div class="meta-bar">Last Updated: November 2026 &bull; Package ID: in.kiranapro.pos</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#acceptance">1. Acceptance of Terms &amp; Eligibility</a></li>
+        <li><a href="#license">2. License &amp; Permitted Retail Business Use</a></li>
+        <li><a href="#offline-backups">3. Offline-First Architecture, Backups &amp; Master Password</a></li>
+        <li><a href="#tax-compliance">4. Merchant Responsibility for GST, Tax &amp; Ledger Accuracy</a></li>
+        <li><a href="#staff-security">5. Store Owner &amp; Staff Account Administration</a></li>
+        <li><a href="#google-services">6. Third-Party Services, Google Drive &amp; Hardware Peripherals</a></li>
+        <li><a href="#prohibited">7. Prohibited Uses</a></li>
+        <li><a href="#warranties">8. Disclaimer of Warranties ("As Is")</a></li>
+        <li><a href="#liability">9. Limitation of Liability</a></li>
+        <li><a href="#modifications">10. Modifications, Governing Law &amp; Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. ACCEPTANCE -->
+    <section id="acceptance">
+      <h2>1. Acceptance of Terms &amp; Eligibility</h2>
+      <p>
+        By downloading, installing, accessing, or operating <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>) on an Android device, tablet, or web browser, you ("Merchant", "Store Owner", or "User") agree to be bound by these Terms of Service and our <a href="./privacy.html">Privacy Policy</a>.
+      </p>
+      <p>
+        You represent that you are at least 18 years of age (or the age of legal majority in your jurisdiction) and possess the authority to enter into these Terms on behalf of yourself or your retail business entity. If you do not agree to these Terms, do not install or use the Application.
+      </p>
+    </section>
+
+    <!-- 2. LICENSE & PERMITTED USE -->
+    <section id="license">
+      <h2>2. License &amp; Permitted Retail Business Use</h2>
+      <p>
+        Subject to your compliance with these Terms, Retail Store One grants you a non-exclusive, non-transferable, revocable license to install and operate the Application for lawful commercial retail management, point-of-sale (POS) billing, inventory tracking, customer Udhaar Khata bookkeeping, supplier purchase order management, and internal business reporting.
+      </p>
+      <ul>
+        <li>You may deploy the Application across multiple counter devices owned or operated by your retail business.</li>
+        <li>You retain 100% ownership and intellectual property rights over all business records, product catalogs, customer lists, invoices, and financial data you enter into the Application.</li>
+      </ul>
+    </section>
+
+    <!-- 3. OFFLINE-FIRST ARCHITECTURE & BACKUPS -->
+    <section id="offline-backups">
+      <h2>3. Offline-First Architecture, Backups &amp; Master Password Responsibility</h2>
+      <p>
+        Retail Store One operates on a local-first, offline-first architecture where operational records reside inside your device's local <strong>IndexedDB</strong> storage rather than a developer-managed central cloud database.
+      </p>
+      <div class="callout amber">
+        <p><strong>Critical Backup &amp; Password Responsibility:</strong></p>
+        <p>
+          1. <strong>Regular Backups:</strong> You are solely responsible for maintaining regular backups of your store data—either by connecting your Google Account for automated encrypted Google Drive <code>appDataFolder</code> synchronization or by exporting encrypted local <code>.json.gz</code> backup files.<br />
+          2. <strong>Zero-Knowledge Master Password:</strong> Cloud snapshots and delta logs are encrypted client-side using <strong>AES-256-GCM</strong> derived from your Store Owner Master Password. Because we operate a zero-knowledge vault with no backdoor or server-side password storage, <strong>if you lose or forget your Master Password and cannot answer your registered recovery questions, your encrypted cloud backups cannot be decrypted or recovered by anyone.</strong>
+        </p>
+      </div>
+      <p>
+        The developers and maintainers of Retail Store One accept no liability for data loss resulting from device theft, hardware failure, accidental uninstallation, clearing of browser/WebView storage, operating system resets, or forgotten encryption passwords.
+      </p>
+    </section>
+
+    <!-- 4. TAX & GST COMPLIANCE -->
+    <section id="tax-compliance">
+      <h2>4. Merchant Responsibility for GST, Tax &amp; Ledger Accuracy</h2>
+      <p>
+        Retail Store One provides billing, CGST/SGST/IGST tax calculation, HSN code tagging, GSTR-1 summary generation, and Udhaar Khata accounting tools to assist retail store operations. However:
+      </p>
+      <ul>
+        <li><strong>Not Legal, Tax, or Accounting Advice:</strong> The Application is a software bookkeeping utility and does not constitute certified chartered accountancy, tax filing, or legal advice.</li>
+        <li><strong>Verification of Tax Rates &amp; Invoices:</strong> You are solely responsible for configuring accurate GSTIN numbers, HSN/SAC codes, tax slabs, product prices, invoice prefixes, and UPI payment details, and for verifying all generated GSTR-1 and financial reports with a qualified tax professional before submitting statutory filings to tax authorities.</li>
+        <li><strong>Customer Credit &amp; Collections:</strong> You are solely responsible for verifying customer Udhaar Khata balances and complying with applicable laws when sending payment reminders via WhatsApp, SMS, or email.</li>
+      </ul>
+    </section>
+
+    <!-- 5. STAFF SECURITY -->
+    <section id="staff-security">
+      <h2>5. Store Owner &amp; Staff Account Administration</h2>
+      <p>
+        Retail Store One allows Store Owners to create local Billing Staff accounts and enforce 4–6 digit PIN authorization for sensitive operations (such as modifying GSTIN/UPI details, editing staff permissions, or resetting store databases).
+      </p>
+      <ul>
+        <li>You are responsible for safeguarding your Store Owner Master Password, counter PIN, and physical access to unlocked POS terminals.</li>
+        <li>You are responsible for all transactions, discounts, stock adjustments, and bills recorded under your Store Owner or Staff accounts on your devices.</li>
+      </ul>
+    </section>
+
+    <!-- 6. THIRD-PARTY SERVICES & HARDWARE -->
+    <section id="google-services">
+      <h2>6. Third-Party Services, Google Drive &amp; Hardware Peripherals</h2>
+      <p>
+        Retail Store One integrates optionally with third-party platforms and external counter hardware:
+      </p>
+      <ul>
+        <li><strong>Google Services:</strong> Optional features including Google Sign-In, Google Drive <code>appDataFolder</code> backup, Google Contacts import, Google Calendar reminders, and Gmail invoice dispatch are governed by Google's Terms of Service and Privacy Policy. Service availability, API quotas, and Google account security remain subject to Google LLC.</li>
+        <li><strong>Thermal Printers &amp; Scanners:</strong> Compatibility with Bluetooth SPP, USB OTG, and Wi-Fi/LAN ESC/POS thermal printers depends on hardware adherence to standard ESC/POS protocols and Android OS permissions.</li>
+        <li><strong>UPI Payments:</strong> Dynamic UPI QR codes generated on receipts encode your configured merchant UPI ID for direct peer-to-merchant settlement; Retail Store One does not process, hold, or intermediate funds.</li>
+      </ul>
+    </section>
+
+    <!-- 7. PROHIBITED USES -->
+    <section id="prohibited">
+      <h2>7. Prohibited Uses</h2>
+      <p>You agree not to use Retail Store One to:</p>
+      <ul>
+        <li>Generate fraudulent tax invoices, falsify accounting records, evade statutory taxes, or conduct unlawful commercial transactions.</li>
+        <li>Reverse-engineer, decompile, tamper with cryptographic integrity checks, or distribute modified binaries impersonating official releases of <code>in.kiranapro.pos</code>.</li>
+        <li>Send unsolicited spam or unlawful communications using the Application's sharing or messaging integrations.</li>
+      </ul>
+    </section>
+
+    <!-- 8. DISCLAIMER OF WARRANTIES -->
+    <section id="warranties">
+      <h2>8. Disclaimer of Warranties ("As Is")</h2>
+      <p>
+        <strong>Retail Store One</strong> is provided on an <strong>"AS IS"</strong> and <strong>"AS AVAILABLE"</strong> basis without warranties of any kind, whether express, implied, or statutory, including without limitation implied warranties of merchantability, fitness for a particular purpose, uninterrupted availability, or non-infringement.
+      </p>
+      <p>
+        While we engineer the Application with automated regression testing, atomic database transactions, and staged backup restoration safeguards, we do not warrant that the Application will be completely free of software defects or compatible with every Android device model or third-party printer.
+      </p>
+    </section>
+
+    <!-- 9. LIMITATION OF LIABILITY -->
+    <section id="liability">
+      <h2>9. Limitation of Liability</h2>
+      <p>
+        To the maximum extent permitted by applicable law, in no event shall the developers, authors, or contributors of <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>) be liable for any direct, indirect, incidental, special, consequential, or punitive damages—including but not limited to loss of profits, loss of business revenue, loss of goodwill, loss of store data, tax penalties, or business interruption—arising out of or in connection with your use of or inability to use the Application, even if advised of the possibility of such damages.
+      </p>
+    </section>
+
+    <!-- 10. MODIFICATIONS, GOVERNING LAW & CONTACT -->
+    <section id="modifications">
+      <h2>10. Modifications, Governing Law &amp; Contact Information</h2>
+      <p>
+        We reserve the right to update or modify these Terms of Service at any time. Updated Terms will be posted on this page with an updated "Last Updated" date. Continued use of the Application after changes are published constitutes your acceptance of the revised Terms.
+      </p>
+      <p>
+        These Terms of Service shall be governed by and construed in accordance with the laws of <strong>India</strong>, without regard to conflict-of-law principles.
+      </p>
+      <p>
+        For questions, legal notices, or support inquiries regarding <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>), please contact:
+      </p>
+      <ul>
+        <li><strong>Application Name:</strong> Retail Store One (<code>in.kiranapro.pos</code>)</li>
+        <li><strong>Developer / Support Email:</strong> <a href="mailto:purushottamranaworld@gmail.com">purushottamranaworld@gmail.com</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Retail Store One</h3>
+        <p>Offline-First Indian Retail POS Billing, Multi-Category Inventory, GST Invoicing &amp; Udhaar Khata (<code>in.kiranapro.pos</code>).</p>
+        <p style="margin-top: 8px;">Contact: <a href="mailto:purushottamranaworld@gmail.com">purushottamranaworld@gmail.com</a></p>
+      </div>
+      <div class="footer-links">
+        <h3>Official Pages</h3>
+        <a href="./index.html">Application Home Page</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 Retail Store One (<code>in.kiranapro.pos</code>). All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
