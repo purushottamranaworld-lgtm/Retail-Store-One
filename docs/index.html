@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retail Store One (in.kiranapro.pos) — Offline-First Indian Retail POS, Inventory, Udhaar Khata, GST &amp; Google Workspace Suite</title>
+  <meta name="description" content="Retail Store One (in.kiranapro.pos) is a comprehensive, zero-cost, offline-first POS billing, multi-category inventory management, GST invoicing, customer Udhaar Khata, supplier purchase order, 38-language, Android widget, and AES-256-GCM encrypted Google Drive AppData sync platform." />
+  <meta property="og:title" content="Retail Store One — Complete Offline-First Indian Retail POS &amp; Store Management" />
+  <meta property="og:description" content="Built for 150+ Indian retail store categories across 38 languages. Includes fast POS billing, barcode scanning, Bluetooth/USB/Wi-Fi ESC/POS thermal printing, Android home-screen widgets, Udhaar Khata, GSTR-1 reports, and encrypted Google Drive AppData sync." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --primary: #166534;
+      --primary-dark: #14532d;
+      --primary-mid: #15803d;
+      --primary-light: #dcfce7;
+      --primary-tint: #f0fdf4;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --text-secondary: #44403c;
+      --muted: #57534e;
+      --border: #e7e5e4;
+      --code-bg: #f5f5f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background-color: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.87em;
+      color: var(--primary-dark);
+      border: 1px solid var(--border);
+    }
+
+    /* Sticky Navigation */
+    nav {
+      background-color: var(--primary-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.12rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #f59e0b;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: #dcfce7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Hero Banner */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, var(--primary-mid) 100%);
+      color: #ffffff;
+      padding: 68px 20px 80px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: var(--accent-light);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      font-size: 2.95rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.16;
+      margin-bottom: 16px;
+    }
+
+    header p.hero-subtitle {
+      font-size: 1.16rem;
+      max-width: 860px;
+      margin: 0 auto 28px;
+      color: #ecfdf5;
+      line-height: 1.65;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 14px;
+      max-width: 960px;
+      margin: 28px auto 0;
+    }
+
+    .stat-box {
+      background: rgba(0, 0, 0, 0.24);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 10px;
+      padding: 14px 12px;
+    }
+
+    .stat-num {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fef3c7;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: #d1fae5;
+    }
+
+    /* Main Content */
+    main {
+      padding: 52px 0 84px;
+    }
+
+    section {
+      margin-bottom: 72px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 3px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.95rem;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      letter-spacing: -0.015em;
+    }
+
+    h3.subhead {
+      font-size: 1.32rem;
+      color: var(--primary-dark);
+      margin: 28px 0 12px;
+    }
+
+    p.lead {
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+      max-width: 960px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 26px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.18rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--primary-tint);
+      color: var(--primary);
+      border: 1px solid var(--primary-light);
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .card p {
+      font-size: 0.96rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .card ul {
+      padding-left: 18px;
+      font-size: 0.94rem;
+      color: var(--text-secondary);
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+    }
+
+    .card ul li strong {
+      color: var(--text);
+    }
+
+    /* Callouts */
+    .callout {
+      background: var(--primary-tint);
+      border: 1px solid var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 24px 26px;
+      margin: 24px 0;
+    }
+
+    .callout.amber {
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout h3 {
+      color: var(--primary-dark);
+      font-size: 1.16rem;
+      margin-bottom: 8px;
+    }
+
+    .callout.amber h3 {
+      color: #92400e;
+    }
+
+    .callout p {
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      margin-bottom: 10px;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Workflow Steps */
+    .workflow-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .workflow-step {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .step-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      font-weight: 800;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .workflow-step h4 {
+      font-size: 1.04rem;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .workflow-step p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-top: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f5f5f4;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Pill Cloud */
+    .pill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .lang-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1c1917;
+      color: #d6d3d1;
+      padding: 52px 20px 36px;
+      font-size: 0.94rem;
+    }
+
+    .footer-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+    }
+
+    footer h3 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+    }
+
+    footer p {
+      color: #a8a29e;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+
+    footer a {
+      color: #86efac;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 36px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #292524;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: #a8a29e;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2.15rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html" class="brand">
+        <span class="brand-dot"></span>
+        Retail Store One
+      </a>
+      <div class="nav-links">
+        <a href="#architecture">Offline Architecture</a>
+        <a href="#pos-billing">POS &amp; Inventory</a>
+        <a href="#khata-gst">Khata, Suppliers &amp; GST</a>
+        <a href="#retail-sectors">150+ Store Sectors</a>
+        <a href="#languages">38 Languages</a>
+        <a href="#android-native">Android Native &amp; Widgets</a>
+        <a href="#google-workspace">Google APIs &amp; Scopes</a>
+        <a href="#security">Security</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="hero-badge">Zero-Cost &bull; 100% Offline-First &bull; Zero-Knowledge AES-256-GCM Encrypted</div>
+      <h1>Retail Store One</h1>
+      <p class="hero-subtitle">
+        A complete, enterprise-grade Indian Retail Point-of-Sale (POS), Multi-Category Inventory, GST Invoicing, Customer Udhaar Khata, Supplier Purchase Order, and Business Accounting platform engineered natively for Android tablets, smartphones, and Progressive Web Apps.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-box">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">Retail Store Categories</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">38</span>
+          <span class="stat-label">Indian &amp; Global Languages</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Offline-First IndexedDB</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">AES-256</span>
+          <span class="stat-label">GCM Cloud Backup Encryption</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">in.kiranapro.pos</span>
+          <span class="stat-label">Official Android Package ID</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- SECTION 1: OFFLINE-FIRST ARCHITECTURE & DISTRIBUTED SYNC -->
+    <section id="architecture">
+      <span class="section-tag">Core Engineering</span>
+      <h2>1. Offline-First Local Storage &amp; Multi-Terminal Architecture</h2>
+      <p class="lead">
+        Retail Store One (formerly KiranaPro) eliminates recurring SaaS subscriptions, slow cloud-dependent billing screens, and central server data harvesting. Every billing counter executes locally on the merchant's Android tablet, phone, or browser with zero network latency—continuing uninterrupted through internet outages, weak cellular signals, or power fluctuations.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Client-Side IndexedDB Engine <span class="card-tag">KiranaDB</span></h3>
+          <p>
+            All product catalogs, sales invoices, customer credit ledgers, supplier purchase orders, expense vouchers, stock movements, and cash drawer sessions are stored locally in structured IndexedDB object stores (<code>idb</code>).
+          </p>
+          <ul>
+            <li><strong>Zero External Server Dependency:</strong> No remote <code>server.url</code> or proprietary cloud database is required to boot, bill, scan barcodes, or print receipts.</li>
+            <li><strong>Multi-Store Support:</strong> Manage multiple independent retail branches or business entities on the same device, each isolated in its own dedicated database (<code>kiranapro_&lt;storeId&gt;</code>).</li>
+            <li><strong>Instant Live Tab Sync:</strong> Uses <code>BroadcastChannel('kiranapro_local_sync')</code> to synchronize multiple open browser windows locally in real time.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Conflict-Free Multi-Device Merging <span class="card-tag">HLC + Commutative</span></h3>
+          <p>
+            Designed for shops running a main counter tablet alongside secondary staff smartphones offline simultaneously, reconciling changes deterministically when internet connectivity returns.
+          </p>
+          <ul>
+            <li><strong>Device-Prefixed Invoice Numbers:</strong> Each terminal receives an assigned device code (<code>A</code>, <code>B</code>, <code>C</code>...) generating collision-free invoice sequences (e.g., <code>INV-A-2627-001</code> vs. <code>INV-B-2627-001</code>).</li>
+            <li><strong>Commutative Stock Ledger:</strong> Inventory levels are computed from append-only additive <code>StockMovement</code> deltas so simultaneous offline sales merge cleanly with automatic negative-stock alerts.</li>
+            <li><strong>Hybrid Logical Clocks (HLC):</strong> Causality-ordered HLC timestamps resolve concurrent catalog edits (product titles, prices, categories) deterministically.</li>
+            <li><strong>Idempotent Event Replay:</strong> Every sync packet carries a unique event ID; replayed or duplicate delta logs are automatically skipped so customer payments are never double-counted.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Staged Restoration &amp; Data Portability <span class="card-tag">Atomic Rollback</span></h3>
+          <p>
+            Built-in safeguards protect active shop databases against interrupted network transfers, corrupt files, or storage quota errors.
+          </p>
+          <ul>
+            <li><strong>Atomic Staged Restore:</strong> Cloud or file backups are first decrypted, checksum-verified, and validated inside a temporary staging database (<code>kiranapro_staging_&lt;storeId&gt;</code>) before atomically committing to live storage.</li>
+            <li><strong>Zero-Loss Rollback:</strong> If decryption fails or a storage error occurs mid-restore, the staging database is discarded and the live shop database remains 100% untouched.</li>
+            <li><strong>Portable Offline Archives:</strong> Export and import compressed, password-protected <code>.json.gz</code> backup bundles directly to device storage anytime.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: POS BILLING, BARCODE SCANNING & INVENTORY -->
+    <section id="pos-billing">
+      <span class="section-tag">Front-Counter &amp; Stock Operations</span>
+      <h2>2. High-Speed POS Billing, Barcode Scanning &amp; Inventory Control</h2>
+      <p class="lead">
+        Engineered for fast-moving Indian retail counters—supporting packaged goods, loose weight/volume items, multi-cart billing, packet counting, and batch/expiry inventory tracking.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Smart POS Checkout &amp; Cart Management</h3>
+          <ul>
+            <li><strong>Instant Product Lookup:</strong> Search items in milliseconds by name, regional alias, SKU, category, or barcode—or tap directly from the visual Quick-Items grid.</li>
+            <li><strong>Built-In Camera Barcode &amp; QR Scanner:</strong> Integrated <code>ScannerHubModal</code> and <code>BarcodeScannerModal</code> (powered by <code>html5-qrcode</code>) scan product barcodes directly using the phone or tablet camera.</li>
+            <li><strong>Loose Decimal Quantities &amp; Packet Counter:</strong> Dedicated <code>DecimalQuantityModal</code> and <code>PacketCountModal</code> handle loose weights and volumes (<code>kg</code>, <code>gm</code>, <code>ltr</code>, <code>ml</code>, <code>mtr</code>) as well as multi-pack bundles.</li>
+            <li><strong>Coupons, Item &amp; Bill Discounts:</strong> Apply percentage or flat rupee discounts on individual line items or entire bills via <code>CouponManagerModal</code>.</li>
+            <li><strong>Hold &amp; Recall Multiple Bills:</strong> Park pending customer carts (<code>HeldBillsModal</code>) while attending to another customer and resume with one tap.</li>
+            <li><strong>Multi-Tender &amp; Split Payments:</strong> Accept Cash, UPI (with dynamic store UPI QR generation via <code>UpiQrPaymentModal</code>), Card, or Udhaar Credit—including split payments across multiple modes (<code>SplitPaymentModal</code>).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Comprehensive Inventory &amp; Stock Movement Engine</h3>
+          <ul>
+            <li><strong>Detailed SKU Master:</strong> Track product name, brand, category, unit of measure, MRP, selling price, purchase/cost price, HSN/SAC code, GST tax slab (0%, 5%, 12%, 18%, 28%), barcode, and product image.</li>
+            <li><strong>Batch &amp; Expiry Management:</strong> Record batch numbers and expiry dates for groceries, FMCG, dairy, agricultural inputs, and pharmacy items to prevent expired stock sales.</li>
+            <li><strong>Real-Time Stock Adjustments:</strong> Perform rapid stock-in, damage/wastage write-offs, or physical audit corrections via <code>QuickStockChangeModal</code>.</li>
+            <li><strong>Low-Stock &amp; Reorder Watchlist:</strong> Automatic low-stock alerts highlight items below minimum threshold with one-click WhatsApp/Arattai supplier reorder messaging.</li>
+            <li><strong>Bulk CSV Catalog Import &amp; Export:</strong> Import hundreds of products from CSV spreadsheets (<code>csvParser.ts</code>) or export full stock valuation sheets.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: KHATA, SUPPLIERS, CASH DRAWER & GST REPORTS -->
+    <section id="khata-gst">
+      <span class="section-tag">Accounting, Khata &amp; Compliance</span>
+      <h2>3. Customer Udhaar Khata, Supplier Purchase Orders, Cash Closing &amp; GST Reports</h2>
+      <p class="lead">
+        Complete back-office financial accounting built into the same offline app—eliminating separate khata notebooks, expense registers, and manual GST calculators.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Double-Entry Customer Udhaar Khata</h3>
+          <ul>
+            <li><strong>Customer Directory &amp; Credit Limits:</strong> Store customer names, phone numbers, addresses, profile photos, GSTINs, and maximum credit limits.</li>
+            <li><strong>Derived Running Balances:</strong> Every credit sale and payment receipt (<code>ReceiveUdhaarPaymentModal</code>) posts to a double-entry ledger with automatic balance computation.</li>
+            <li><strong>Digital Khata Statements &amp; Reminders:</strong> Export itemized customer ledger statements (<code>udharStatementExport.ts</code>) as PDF/image and share payment reminders via WhatsApp, SMS, or Gmail.</li>
+            <li><strong>Payment Due Scheduling:</strong> Track overdue balances and schedule follow-up collection reminders (<code>ScheduleCalendarReminderModal</code>).</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Suppliers, Purchase Orders &amp; Cash Register</h3>
+          <ul>
+            <li><strong>Supplier Directory &amp; Payables:</strong> Track wholesale distributors, supplier phone/GST details, purchase bills, and outstanding supplier dues.</li>
+            <li><strong>Purchase Order to Invoice Conversion:</strong> Create supplier purchase orders (<code>SupplierOrderModal</code>) and convert received deliveries directly into stock-inward purchase invoices (<code>ConvertPoToInvoiceModal</code>).</li>
+            <li><strong>Business Expense Tracker:</strong> Categorize and record daily shop expenses (rent, electricity, transport, packaging, staff wages) in <code>ExpensesScreen</code>.</li>
+            <li><strong>Daily Cash Drawer Closing:</strong> Reconcile opening cash, cash sales, cash payouts, and physical drawer count at end-of-day in <code>CashClosingScreen</code>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>GST Invoicing &amp; Business Analytics</h3>
+          <ul>
+            <li><strong>GST-Compliant Tax Breakdown:</strong> Automatic intra-state (CGST + SGST) and inter-state (IGST) tax computation per HSN code and tax slab.</li>
+            <li><strong>GSTR-1 Ready Reports:</strong> Generate B2B and B2C sales summaries, tax slab breakdowns, and downloadable CSV/PDF reports for tax filing.</li>
+            <li><strong>Interactive Business Dashboards:</strong> Analyze revenue trends, gross and net profit margins, top-selling products, payment mode mix, and custom date ranges (<code>DashboardScreen</code> &amp; <code>ReportsScreen</code>).</li>
+            <li><strong>Customizable In-App Widgets:</strong> Pin live Quick-Glance sales tickers, Cash Drawer status, Urgent Reorder alerts, Udhaar Watchlist, Profit Meter, and Daily Sales Goal trackers right on your dashboard (<code>StoreWidgetsGrid</code> &amp; <code>FloatingStoreWidget</code>).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 150+ RETAIL SECTORS -->
+    <section id="retail-sectors">
+      <span class="section-tag">Multi-Category Classification</span>
+      <h2>4. Tailored for 150+ Retail Store Categories Across 9 Industry Sectors</h2>
+      <p class="lead">
+        During store setup, merchants can select one or multiple business categories from Retail Store One's built-in Indian retail taxonomy (<code>retailCategories.ts</code>) to adapt product units, tax workflows, and catalog templates to their exact shop type.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>General Retail, Kirana &amp; Food</h3>
+          <p>Kirana Store, General Store, Grocery Store, Supermarket / Mini-Mart, Wholesale Grocery, FMCG Retail, Fruits &amp; Vegetables, Dairy &amp; Milk Products, Bakery, Sweets &amp; Mithai, Snacks &amp; Packaged Foods, Dry Fruits &amp; Spices, Meat/Fish/Poultry, Organic Products, Water &amp; Beverage Distribution.</p>
+        </div>
+        <div class="card">
+          <h3>Agriculture, Seeds &amp; Farming</h3>
+          <p>Seeds &amp; Agricultural Inputs, Seed Depot / Beej Bhandar, Fertilizers (Khad &amp; Urea), Pesticides &amp; Insecticides, Herbicides, Fungicides, Biofertilizers, Animal &amp; Cattle Feed, Veterinary Supplies, Agricultural Tools, Farm Machinery, Irrigation &amp; Drip Systems, Pumps &amp; Sprinklers, Grain &amp; Mandi Produce.</p>
+        </div>
+        <div class="card">
+          <h3>Stationery, Books &amp; Education</h3>
+          <p>Stationery &amp; Book Depot, Bookshop / Bookstore, School &amp; College Books, Competitive Exam Books, Notebooks &amp; Registers, Office Stationery, School Supplies, Printing &amp; Photocopy, Binding &amp; Lamination, Art &amp; Craft Supplies, Office Equipment, Educational Toys.</p>
+        </div>
+        <div class="card">
+          <h3>Electronics, Mobile &amp; Technology</h3>
+          <p>Electronics Store, Mobile Phone &amp; Accessories Shop, Mobile Repair &amp; Spare Parts, Computer &amp; Laptop Store, IT Peripherals, Home Appliances, Electrical Goods &amp; Lighting, Solar &amp; Inverter Shop, CCTV &amp; Security Systems.</p>
+        </div>
+        <div class="card">
+          <h3>Medical, Pharmacy &amp; Personal Care</h3>
+          <p>Medical Store / Chemist / Pharmacy, Surgical &amp; Medical Equipment, Ayurvedic &amp; Herbal Store, Cosmetics &amp; Beauty Products, Optical &amp; Eyewear Store, Baby Care &amp; Wellness Shop.</p>
+        </div>
+        <div class="card">
+          <h3>Hardware, Fashion, Auto &amp; Specialty</h3>
+          <p>Hardware &amp; Sanitaryware, Paint &amp; Building Materials, Timber &amp; Plywood, Readymade Garments, Textiles &amp; Sarees, Footwear &amp; Bags, Auto Spares &amp; Lubricants, Tyres &amp; Batteries, Gift &amp; Sports Shops, Furniture &amp; Home Decor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: 38 LANGUAGES -->
+    <section id="languages">
+      <span class="section-tag">Inclusive Localization</span>
+      <h2>5. Full User Interface &amp; Receipt Localization in 38 Languages</h2>
+      <p class="lead">
+        Retail Store One includes an offline deterministic UI &amp; receipt translation engine (<code>i18n.ts</code>, <code>uiTranslator.ts</code>, <code>localizedSharing.ts</code>) supporting 38 Indian scheduled, regional, and global languages—including right-to-left (RTL) script rendering for Urdu and Arabic.
+      </p>
+
+      <div class="card">
+        <h3>Supported Indian Scheduled, Regional &amp; Global Languages</h3>
+        <div class="pill-cloud">
+          <span class="lang-pill">हिन्दी (Hindi)</span>
+          <span class="lang-pill">English</span>
+          <span class="lang-pill">Hinglish</span>
+          <span class="lang-pill">ગુજરાતી (Gujarati)</span>
+          <span class="lang-pill">मराठी (Marathi)</span>
+          <span class="lang-pill">ਪੰਜਾਬੀ (Punjabi)</span>
+          <span class="lang-pill">বাংলা (Bengali)</span>
+          <span class="lang-pill">தமிழ் (Tamil)</span>
+          <span class="lang-pill">తెలుగు (Telugu)</span>
+          <span class="lang-pill">ಕನ್ನಡ (Kannada)</span>
+          <span class="lang-pill">മലയാളം (Malayalam)</span>
+          <span class="lang-pill">ଓଡ଼ିଆ (Odia)</span>
+          <span class="lang-pill">اردو (Urdu - RTL)</span>
+          <span class="lang-pill">অসমীয়া (Assamese)</span>
+          <span class="lang-pill">मैथिली (Maithili)</span>
+          <span class="lang-pill">भोजपुरी (Bhojpuri)</span>
+          <span class="lang-pill">राजस्थानी (Rajasthani / Marwari)</span>
+          <span class="lang-pill">हरियाणवी (Haryanvi)</span>
+          <span class="lang-pill">छत्तीसगढ़ी (Chhattisgarhi)</span>
+          <span class="lang-pill">नेपाली (Nepali)</span>
+          <span class="lang-pill">कोंकणी (Konkani)</span>
+          <span class="lang-pill">डोगरी (Dogri)</span>
+          <span class="lang-pill">सिंधी (Sindhi)</span>
+          <span class="lang-pill">कश्मीरी (Kashmiri)</span>
+          <span class="lang-pill">মৈতৈলোন্ (Manipuri / Meitei)</span>
+          <span class="lang-pill">ᱥᱟᱱᱛᱟᱲᱤ (Santali)</span>
+          <span class="lang-pill">बड़ो (Bodo)</span>
+          <span class="lang-pill">संस्कृतम् (Sanskrit)</span>
+          <span class="lang-pill">ತುಳು (Tulu)</span>
+          <span class="lang-pill">العربية (Arabic - RTL)</span>
+          <span class="lang-pill">Español (Spanish)</span>
+          <span class="lang-pill">Français (French)</span>
+          <span class="lang-pill">Português (Portuguese)</span>
+          <span class="lang-pill">Русский (Russian)</span>
+          <span class="lang-pill">Bahasa Indonesia</span>
+          <span class="lang-pill">中文 (Chinese)</span>
+          <span class="lang-pill">日本語 (Japanese)</span>
+          <span class="lang-pill">Deutsch (German)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: NATIVE ANDROID HARDWARE & HOME SCREEN WIDGETS -->
+    <section id="android-native">
+      <span class="section-tag">Native Android Integration</span>
+      <h2>6. Native Android Thermal Printers, Home Screen Widgets &amp; OS Bridges</h2>
+      <p class="lead">
+        The native Android APK (<code>in.kiranapro.pos</code>) embeds custom Java Capacitor plugins inside <code>MainActivity.java</code> to communicate directly with retail counter peripherals and Android OS services without third-party bridge apps.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>ESC/POS Thermal Printer Plugin <span class="card-tag">ThermalPrinterPlugin</span></h3>
+          <p>Direct binary ESC/POS printing for 58mm and 80mm thermal receipt rolls across three hardware transports:</p>
+          <ul>
+            <li><strong>Bluetooth SPP Thermal Printers:</strong> Native RFCOMM socket pairing, printer auto-detection (TVS, Epson, Rugtek, Everycom, Hoin, NGX, Retsol), and chunked ESC/POS transmission with Android 12+ runtime permissions (<code>BLUETOOTH_CONNECT</code>, <code>BLUETOOTH_SCAN</code>).</li>
+            <li><strong>USB OTG POS Printers:</strong> Android USB Host bulk-out endpoint discovery and direct OTG cable receipt printing.</li>
+            <li><strong>Wi-Fi / LAN Network Printers:</strong> Direct TCP port 9100 socket printing and fast local subnet printer discovery.</li>
+            <li><strong>Android System PrintManager:</strong> Native A4/A5 PDF and HTML document printing via <code>AndroidNativeBridge.printHtmlContent()</code>.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Android Home Screen Widgets <span class="card-tag">StoreWidgetPlugin</span></h3>
+          <p>Native Android <code>AppWidgetProvider</code> widgets keep store performance visible and launch billing in one tap:</p>
+          <ul>
+            <li><strong>Full Store Dashboard Widget (4&times;2 Resizable):</strong> Powered by <code>StoreSummaryWidgetProvider</code>—displays live daily revenue, bill count, and key store metrics directly on your phone or tablet home screen.</li>
+            <li><strong>Quick-POS Launcher Widget (2&times;2 Resizable):</strong> Powered by <code>QuickPosWidgetProvider</code>—compact counter widget with deep-link intents that open <code>MainActivity</code> directly into a new POS billing screen.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Native Share, Email &amp; Tablet Insets <span class="card-tag">AndroidNativeBridge</span></h3>
+          <p>Purpose-built Android system bridges ensure smooth operation on both compact phones and large retail tablets:</p>
+          <ul>
+            <li><strong>Native Share &amp; Direct Gmail Dispatch:</strong> Shares generated PDF invoices, JPG receipts, and GSTR CSV reports via Android's native chooser or pre-addressed Gmail intents using secure <code>FileProvider</code> URIs.</li>
+            <li><strong>Edge-to-Edge Tablet Safe Insets:</strong> Dynamic handling of status bars, navigation bars, display cutouts, and soft keyboards (<code>WindowInsetsCompat</code>) prevents UI clipping on Samsung Galaxy Tabs and Android phones.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: GOOGLE WORKSPACE & OAUTH SCOPE TRANSPARENCY -->
+    <section id="google-workspace">
+      <span class="section-tag">Google API Disclosure &amp; Transparency</span>
+      <h2>7. Google Sign-In, Encrypted Drive AppData &amp; Optional Workspace Tools</h2>
+      <p class="lead">
+        Retail Store One works 100% offline without a Google account. When a merchant optionally connects their Google account, Retail Store One uses native Google Play Services authentication (<code>play-services-auth:21.3.0</code>) and follows strict incremental scope authorization.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Google OAuth Scope</th>
+              <th>Authorization Mode</th>
+              <th>Exact Purpose in Retail Store One</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>openid</code><br /><code>userinfo.email</code><br /><code>userinfo.profile</code></td>
+              <td>Core Sign-In</td>
+              <td>Identifies the store owner's Google account email, display name, and subject ID (<code>sub</code>) so encrypted cloud backups are strictly bound to the verified shop owner.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/drive.appdata</code></td>
+              <td>Core Cloud Backup</td>
+              <td>Stores AES-256-GCM encrypted store snapshots and incremental delta logs inside Google Drive's <strong>hidden application-specific <code>appDataFolder</code></strong>. Retail Store One cannot view, read, modify, or delete any personal files, photos, or folders in your Google Drive.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/contacts</code></td>
+              <td>Optional (User-Triggered)</td>
+              <td>Requested only if the merchant opens <code>GoogleContactsImportModal</code> to import customer phone numbers into Udhaar Khata or save customer profiles to Google Contacts.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/calendar.events</code></td>
+              <td>Optional (User-Triggered)</td>
+              <td>Requested only if the merchant opens <code>ScheduleCalendarReminderModal</code> to add a customer credit collection due date or supplier payment reminder to Google Calendar.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/gmail.send</code><br /><code>https://www.googleapis.com/auth/gmail.readonly</code></td>
+              <td>Optional (User-Triggered)</td>
+              <td>Requested only if the merchant explicitly uses the Workspace Hub email tool to send GST invoices or Udhaar payment statements directly from their Gmail address.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout amber">
+        <h3>Google API Services User Data Policy Compliance</h3>
+        <p>
+          Retail Store One's use and transfer to any other app of information received from Google APIs adheres to the <strong>Google API Services User Data Policy</strong>, including the Limited Use requirements. All store operational data is encrypted client-side on the user's device before transmission to Google Drive's isolated <code>appDataFolder</code>, and no user data is ever sold, shared with advertisers, or used for AI model training.
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CRYPTOGRAPHIC SECURITY & ROLE ACCESS -->
+    <section id="security">
+      <span class="section-tag">Cryptographic Vault &amp; Access Control</span>
+      <h2>8. Zero-Knowledge Encryption &amp; Role-Based Store Security</h2>
+      <p class="lead">
+        Built with defense-in-depth cryptography to protect store owners against unauthorized staff edits, device theft, and cloud data exposure.
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Zero-Knowledge AES-256-GCM Cloud Vault</h3>
+          <ul>
+            <li><strong>PBKDF2-SHA256 Key Derivation:</strong> Encryption keys are derived locally from the Store Owner's Master Password using PBKDF2-SHA256 with 200,000 iterations and a cryptographically random 16-byte salt.</li>
+            <li><strong>AES-256-GCM Authenticated Encryption:</strong> Backups use 256-bit AES-GCM with a unique 96-bit random IV, 128-bit authentication tag, Authenticated Additional Data (AAD binding <code>storeId</code> and <code>ownerGoogleSub</code>), and pre-decryption SHA-256 checksum verification.</li>
+            <li><strong>In-Memory Non-Extractable Keys:</strong> Derived <code>CryptoKey</code> instances remain strictly in volatile session memory and are never written to <code>localStorage</code> or disk.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Counter Staff Permissions &amp; PIN Safeguards</h3>
+          <ul>
+            <li><strong>Owner vs. Staff Separation:</strong> Store Owners retain full administrative authority while Billing Staff accounts can be restricted to front-counter billing and customer lookup.</li>
+            <li><strong>Sensitive Action PIN Re-Authentication:</strong> Modifying store GSTIN, updating UPI payment ID, changing staff permissions, importing external backups, or resetting the store database requires explicit 4–6 digit PIN verification (<code>verifySecurityCredential</code>).</li>
+            <li><strong>3-Question Owner Recovery &amp; Audit Trail:</strong> Local password recovery via PBKDF2-hashed security questions (<code>InitialOwnerSetupModal</code>) paired with a tamper-evident activity log (<code>AuditTrailTab</code>).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+        <div class="workflow-step">
+          <div class="step-badge">1</div>
+          <h4>Sign In with Google</h4>
+          <p>Authenticate your store owner email via native Google Play Services Sign-In.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-badge">2</div>
+          <h4>Create Owner Vault</h4>
+          <p>Set your Master Password, 4–6 digit fast counter PIN, and 3 recovery questions.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-badge">3</div>
+          <h4>Operate 100% Offline</h4>
+          <p>Bill customers, scan barcodes, print receipts, and manage Khata with zero internet.</p>
+        </div>
+        <div class="workflow-step">
+          <div class="step-badge">4</div>
+          <h4>Encrypted Sync &amp; Restore</h4>
+          <p>Encrypted deltas sync automatically to Drive <code>appDataFolder</code> for instant new-device recovery.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: COMPLETE TECHNICAL SPECIFICATIONS -->
+    <section id="specs">
+      <span class="section-tag">System Architecture</span>
+      <h2>9. Technical Specifications &amp; Build Stack</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>System Layer</th>
+              <th>Specification &amp; Implementation Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Application Name</strong></td>
+              <td>Retail Store One</td>
+            </tr>
+            <tr>
+              <td><strong>Android Package ID / Namespace</strong></td>
+              <td><code>in.kiranapro.pos</code></td>
+            </tr>
+            <tr>
+              <td><strong>Frontend &amp; UI Framework</strong></td>
+              <td>React 19.0.1, TypeScript 7, Vite 8.3.0, Tailwind CSS 4, Lucide Icons, Motion</td>
+            </tr>
+            <tr>
+              <td><strong>Android Native Runtime</strong></td>
+              <td>Capacitor 8.6.0, Java 21, Android Gradle Plugin 8.13.0, Gradle 8.14.3, Min SDK 24 (Android 7.0+), Compile &amp; Target SDK 36</td>
+            </tr>
+            <tr>
+              <td><strong>Local Database &amp; Sync Engine</strong></td>
+              <td>IndexedDB (<code>idb</code> 8.0.4), Hybrid Logical Clocks (HLC), Atomic Staged Restoration, <code>BroadcastChannel</code> Tab Sync</td>
+            </tr>
+            <tr>
+              <td><strong>Cryptography &amp; Compression</strong></td>
+              <td>Web Crypto API — AES-256-GCM, PBKDF2-SHA256, SHA-256 Checksums, Native Gzip Compression Streams</td>
+            </tr>
+            <tr>
+              <td><strong>Native Android Plugins</strong></td>
+              <td><code>GoogleAuthPlugin</code> (Play Services Auth 21.3.0), <code>ThermalPrinterPlugin</code> (Bluetooth SPP, USB OTG, Wi-Fi TCP 9100), <code>StoreWidgetPlugin</code> (4&times;2 &amp; 2&times;2 AppWidgets), <code>AndroidNativeBridge</code></td>
+            </tr>
+            <tr>
+              <td><strong>Supported Languages &amp; Sectors</strong></td>
+              <td>38 Indian &amp; Global Languages (including RTL Urdu/Arabic) &bull; 150+ Retail Store Categories across 9 Industry Groups</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h3>Retail Store One</h3>
+        <p>
+          Complete Offline-First Indian Retail POS Billing, Multi-Category Inventory, GST Invoicing, Udhaar Khata &amp; Business Management Platform (<code>in.kiranapro.pos</code>).
+        </p>
+        <p>
+          Developer &amp; Support Contact:<br />
+          <a href="mailto:purushottamranaworld@gmail.com">purushottamranaworld@gmail.com</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>Platform Highlights</h3>
+        <ul class="footer-list">
+          <li><a href="#architecture">Offline-First IndexedDB &amp; HLC Sync</a></li>
+          <li><a href="#pos-billing">POS Billing, Scanner &amp; Inventory</a></li>
+          <li><a href="#khata-gst">Udhaar Khata, Suppliers &amp; GSTR-1</a></li>
+          <li><a href="#android-native">Thermal Printers &amp; Android Widgets</a></li>
+          <li><a href="#google-workspace">Google API Scopes &amp; Drive AppData</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Legal &amp; Compliance</h3>
+        <ul class="footer-list">
+          <li><a href="./index.html">Application Home Page</a></li>
+          <li><a href="./privacy.html">Privacy Policy</a></li>
+          <li><a href="./terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Retail Store One (<code>in.kiranapro.pos</code>). All rights reserved.</span>
+      <span>Offline-First &bull; Privacy-First &bull; Zero-Knowledge AES-256-GCM Encrypted</span>
+    </div>
+  </footer>
+
+</body>
+</html>
