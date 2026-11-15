@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Retail Store One (in.kiranapro.pos)</title>
+  <meta name="description" content="Official Privacy Policy for Retail Store One (in.kiranapro.pos). Learn how local IndexedDB storage, client-side AES-256-GCM encryption, Google Drive appDataFolder sync, optional Google Workspace scopes, and Android device permissions protect your business privacy." />
+  <style>
+    :root {
+      --primary: #166534;
+      --primary-dark: #14532d;
+      --primary-mid: #15803d;
+      --primary-light: #dcfce7;
+      --primary-tint: #f0fdf4;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --bg: #fafaf9;
+      --surface: #ffffff;
+      --text: #1c1917;
+      --text-secondary: #44403c;
+      --muted: #57534e;
+      --border: #e7e5e4;
+      --code-bg: #f5f5f4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.72;
+      font-size: 16px;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      background-color: var(--code-bg);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.87em;
+      color: var(--primary-dark);
+      border: 1px solid var(--border);
+    }
+
+    nav {
+      background-color: var(--primary-dark);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #f59e0b;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.88rem;
+    }
+
+    .nav-links a {
+      color: #dcfce7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-mid) 100%);
+      color: #ffffff;
+      padding: 56px 20px 64px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: var(--accent-light);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      color: #ecfdf5;
+      font-size: 1.08rem;
+    }
+
+    .meta-bar {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: #d1fae5;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    main {
+      padding: 44px 0 80px;
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 26px;
+      margin-bottom: 36px;
+    }
+
+    .toc h2 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      border: none;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .toc ol {
+      padding-left: 20px;
+      columns: 2;
+      column-gap: 32px;
+      font-size: 0.94rem;
+    }
+
+    .toc li {
+      margin-bottom: 6px;
+    }
+
+    .toc a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    h2 {
+      font-size: 1.48rem;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary-light);
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+      color: var(--text-secondary);
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    ul li strong {
+      color: var(--text);
+    }
+
+    .callout {
+      background: var(--primary-tint);
+      border: 1px solid var(--primary-light);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+
+    .callout.amber {
+      background: #fffbeb;
+      border-color: #fde68a;
+      border-left: 4px solid var(--accent);
+    }
+
+    .callout p {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .callout p:last-child {
+      margin-bottom: 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 16px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    th, td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f5f5f4;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    footer {
+      background-color: #1c1917;
+      color: #d6d3d1;
+      padding: 44px 20px 32px;
+      font-size: 0.92rem;
+    }
+
+    .footer-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    footer h3 {
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    footer p {
+      color: #a8a29e;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #86efac;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .copyright {
+      max-width: 1040px;
+      margin: 28px auto 0;
+      padding-top: 18px;
+      border-top: 1px solid #292524;
+      font-size: 0.84rem;
+      color: #a8a29e;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .toc ol {
+        columns: 1;
+      }
+      section {
+        padding: 22px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="./index.html" class="brand">
+        <span class="brand-dot"></span>
+        Retail Store One
+      </a>
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="#local-storage">Local Storage</a>
+        <a href="#google-user-data">Google User Data &amp; Scopes</a>
+        <a href="#encryption">Encryption &amp; Security</a>
+        <a href="#permissions">Device Permissions</a>
+        <a href="#retention">Data Retention &amp; Deletion</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <div class="badge">Privacy-First &bull; Offline-First &bull; Zero-Knowledge Encrypted</div>
+      <h1>Privacy Policy for Retail Store One</h1>
+      <p>
+        This Privacy Policy explains how <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>, "the Application") handles, stores, encrypts, and protects your store records, customer ledgers, and optional Google account data.
+      </p>
+      <div class="meta-bar">Last Updated: November 2026 &bull; Package ID: in.kiranapro.pos</div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="toc">
+      <h2>Table of Contents</h2>
+      <ol>
+        <li><a href="#overview">1. Overview &amp; Core Privacy Commitment</a></li>
+        <li><a href="#local-storage">2. Data Stored Locally on Your Device</a></li>
+        <li><a href="#google-user-data">3. Google Sign-In, Google Drive &amp; Optional Workspace Scopes</a></li>
+        <li><a href="#limited-use">4. Google API Services User Data Policy (Limited Use Disclosure)</a></li>
+        <li><a href="#encryption">5. Client-Side Encryption &amp; Credential Security</a></li>
+        <li><a href="#permissions">6. Android &amp; Browser Device Permissions</a></li>
+        <li><a href="#widgets">7. Android Home Screen Widgets &amp; Local Cache</a></li>
+        <li><a href="#retention">8. Data Retention, Export &amp; Account/Data Deletion</a></li>
+        <li><a href="#children">9. Children's Privacy</a></li>
+        <li><a href="#changes">10. Changes to This Privacy Policy &amp; Contact</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. OVERVIEW -->
+    <section id="overview">
+      <h2>1. Overview &amp; Core Privacy Commitment</h2>
+      <p>
+        <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>) is engineered as an offline-first, privacy-first Point-of-Sale (POS), inventory management, GST invoicing, and customer Udhaar Khata application for retail merchants.
+      </p>
+      <div class="callout">
+        <p><strong>Zero Central Server Harvesting:</strong> We do not operate a proprietary cloud database that collects, reads, analyzes, rents, or sells your store's sales invoices, product pricing, supplier records, or customer phone numbers. Your business data remains strictly on your device and—only if you explicitly enable cloud backup—inside your own personal Google Drive account.</p>
+      </div>
+      <p>
+        You can use Retail Store One completely offline without creating an online account or signing in with Google.
+      </p>
+    </section>
+
+    <!-- 2. LOCAL STORAGE -->
+    <section id="local-storage">
+      <h2>2. Data Stored Locally on Your Device</h2>
+      <p>
+        All operational business data entered into Retail Store One is stored exclusively inside your device's local browser/WebView storage engine (<strong>IndexedDB</strong>) and local application preferences:
+      </p>
+      <ul>
+        <li><strong>Store Profile &amp; Tax Settings:</strong> Shop name, owner name, contact phone number, store address, GSTIN, UPI ID, invoice numbering prefixes, and receipt header/footer notes.</li>
+        <li><strong>Product Catalog &amp; Inventory Records:</strong> Item names, SKUs, barcodes, HSN/SAC codes, GST tax rates, MRP, selling prices, purchase costs, batch/expiry dates, stock quantities, and product images.</li>
+        <li><strong>Sales Invoices &amp; Cash Register Sessions:</strong> Itemized customer bills, discounts, payment modes (Cash, UPI, Card, Udhaar Credit), expense entries, and daily cash drawer opening/closing logs.</li>
+        <li><strong>Customer Udhaar Khata &amp; Supplier Ledgers:</strong> Customer names, phone numbers, addresses, credit limits, credit/debit ledger entries, supplier profiles, and purchase orders.</li>
+        <li><strong>Local Security Credentials &amp; Audit Logs:</strong> PBKDF2-SHA256 cryptographic hashes of your Store Owner Master Password, 4–6 digit counter PIN, recovery question answers, and local staff activity audit trails.</li>
+      </ul>
+      <p>
+        Android OS automatic cloud app-data backup is explicitly disabled in the application manifest (<code>android:allowBackup="false"</code>, <code>android:fullBackupContent="false"</code>) so unencrypted raw database files are never copied by third-party device backup services.
+      </p>
+    </section>
+
+    <!-- 3. GOOGLE USER DATA & SCOPES -->
+    <section id="google-user-data">
+      <h2>3. Google Sign-In, Google Drive &amp; Optional Workspace Scopes</h2>
+      <p>
+        If you choose to connect your Google Account for encrypted cloud backup and cross-device restoration, Retail Store One authenticates via Google Play Services (on Android) or Google Identity Services (on Web) and requests only the specific OAuth 2.0 scopes needed for the feature you activate:
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Google OAuth Scope</th>
+              <th>When Requested</th>
+              <th>How Data Is Accessed, Used &amp; Stored</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>openid</code><br /><code>https://www.googleapis.com/auth/userinfo.email</code><br /><code>https://www.googleapis.com/auth/userinfo.profile</code></td>
+              <td>Core Google Sign-In</td>
+              <td>Used solely to verify your Google email address, display name, and unique Google Subject ID (<code>sub</code>) so your encrypted store backups are bound exclusively to your verified store owner identity.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/drive.appdata</code></td>
+              <td>Core Cloud Backup &amp; Sync</td>
+              <td>Grants access <strong>only</strong> to a hidden, isolated application folder (<code>appDataFolder</code>) inside your own Google Drive. Retail Store One cannot see, read, modify, or delete any of your personal Drive files, documents, or photos. All store snapshots and delta logs are encrypted on-device with <strong>AES-256-GCM</strong> before upload.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/contacts</code></td>
+              <td>Optional (Only if you open Contacts Import/Sync)</td>
+              <td>Used only when you explicitly trigger customer/supplier contact import or export inside the app to populate phone numbers and names in your local Udhaar Khata directory.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/calendar.events</code></td>
+              <td>Optional (Only if you schedule a payment reminder)</td>
+              <td>Used only when you explicitly click to schedule a customer Udhaar collection due date or supplier payment reminder onto your Google Calendar.</td>
+            </tr>
+            <tr>
+              <td><code>https://www.googleapis.com/auth/gmail.send</code><br /><code>https://www.googleapis.com/auth/gmail.readonly</code></td>
+              <td>Optional (Only if you use the Workspace Email tool)</td>
+              <td>Used only when you explicitly send a GST invoice or Udhaar ledger statement by email from inside the app's Workspace Hub.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        OAuth access tokens are held strictly in volatile memory/session state for active API requests and are never logged to external servers.
+      </p>
+    </section>
+
+    <!-- 4. LIMITED USE DISCLOSURE -->
+    <section id="limited-use">
+      <h2>4. Google API Services User Data Policy (Limited Use Disclosure)</h2>
+      <div class="callout amber">
+        <p>
+          <strong>Limited Use Commitment:</strong> Retail Store One's use and transfer to any other app of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer" style="color: #92400e; font-weight: 700;">Google API Services User Data Policy</a>, including the Limited Use requirements.
+        </p>
+      </div>
+      <ul>
+        <li>We <strong>never</strong> sell, rent, or trade Google user data or store financial records to data brokers, advertising networks, or third parties.</li>
+        <li>We <strong>never</strong> use Google user data for targeted advertising, marketing profiling, or creditworthiness scoring.</li>
+        <li>We <strong>never</strong> use Google user data or Google Drive files to train artificial intelligence (AI) or machine learning models.</li>
+        <li>Human access to your cloud backup files is impossible because all backup payloads are encrypted client-side with AES-256-GCM using a key derived from your private Store Owner Master Password.</li>
+      </ul>
+    </section>
+
+    <!-- 5. ENCRYPTION & CREDENTIAL SECURITY -->
+    <section id="encryption">
+      <h2>5. Client-Side Encryption &amp; Credential Security</h2>
+      <p>
+        Retail Store One implements zero-knowledge cryptographic protections for cloud backups and local access control:
+      </p>
+      <ul>
+        <li><strong>PBKDF2-SHA256 Key Derivation:</strong> Your encryption key is derived locally on your device from your Store Owner Master Password using PBKDF2-SHA256 (200,000 iterations) with a cryptographically random 16-byte salt.</li>
+        <li><strong>AES-256-GCM Authenticated Encryption:</strong> Every master snapshot and incremental sync delta log is Gzip-compressed and encrypted locally using AES-256-GCM with a unique 96-bit random IV, 128-bit authentication tag, Authenticated Additional Data (AAD), and pre-decryption SHA-256 integrity verification.</li>
+        <li><strong>Non-Extractable Session Keys:</strong> Derived Web Crypto <code>CryptoKey</code> objects are kept in memory only while your store is unlocked and are cleared when you lock or close the app.</li>
+        <li><strong>Role-Based Staff Restrictions &amp; PIN Guards:</strong> Billing staff accounts can be restricted from viewing profit margins or modifying store settings, and sensitive operations (such as changing GSTIN/UPI details, managing staff roles, or resetting databases) require owner PIN verification.</li>
+      </ul>
+    </section>
+
+    <!-- 6. DEVICE PERMISSIONS -->
+    <section id="permissions">
+      <h2>6. Android &amp; Browser Device Permissions</h2>
+      <p>
+        Retail Store One declares only the minimum hardware permissions required for retail counter workflows. All hardware features are marked optional (<code>android:required="false"</code>) so the app runs smoothly even on devices without cameras or Bluetooth:
+      </p>
+      <ul>
+        <li><strong>Camera (<code>android.permission.CAMERA</code>):</strong> Used exclusively on-device to scan product barcodes and QR codes during POS billing and inventory entry. No camera frames or video streams are ever uploaded to any server.</li>
+        <li><strong>Bluetooth (<code>BLUETOOTH_CONNECT</code>, <code>BLUETOOTH_SCAN</code>, legacy <code>BLUETOOTH</code> / <code>BLUETOOTH_ADMIN</code>):</strong> Used exclusively to discover, pair, and send binary ESC/POS print commands to nearby Bluetooth thermal receipt printers. Declared with <code>neverForLocation</code> so Bluetooth scanning is never used to infer physical location.</li>
+        <li><strong>USB Host Mode (<code>android.hardware.usb.host</code>):</strong> Used exclusively to communicate with wired USB OTG thermal receipt printers connected to your Android tablet or phone.</li>
+        <li><strong>Network &amp; Internet Access (<code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>):</strong> Used to detect online/offline status, send ESC/POS print jobs to local Wi-Fi/LAN thermal printers on your shop network (port 9100), and synchronize encrypted backups with your Google Drive <code>appDataFolder</code>.</li>
+        <li><strong>Storage &amp; File Picker (<code>READ_EXTERNAL_STORAGE</code> / <code>WRITE_EXTERNAL_STORAGE</code> on Android 12 and below, plus scoped Android system file pickers):</strong> Used solely when you choose a shop logo or profile photo, or when you export/import PDF invoices, JPG receipts, GSTR-1 CSV reports, and encrypted <code>.json.gz</code> backup files.</li>
+      </ul>
+    </section>
+
+    <!-- 7. WIDGETS -->
+    <section id="widgets">
+      <h2>7. Android Home Screen Widgets &amp; Local Cache</h2>
+      <p>
+        If you place the optional <strong>Store Summary Widget (4&times;2)</strong> or <strong>Quick-POS Widget (2&times;2)</strong> on your Android home screen, Retail Store One writes aggregate daily metrics (such as today's total sales count and revenue total) to local Android <code>SharedPreferences</code> solely so the Android OS launcher can render the widget offline. No widget data is transmitted externally.
+      </p>
+    </section>
+
+    <!-- 8. RETENTION & DELETION -->
+    <section id="retention">
+      <h2>8. Data Retention, Export &amp; Account/Data Deletion</h2>
+      <p>
+        Because Retail Store One does not store your data on any developer-owned server, you maintain 100% direct control over retention and deletion:
+      </p>
+      <ul>
+        <li><strong>Local Data Deletion:</strong> You can delete individual products, invoices, or customer records inside the app, use the <strong>Reset Store Database</strong> option in Settings, or uninstall Retail Store One / clear app storage in Android Settings to permanently erase all local IndexedDB records.</li>
+        <li><strong>Cloud Backup Deletion &amp; Revoking Google Access:</strong> You can disconnect your Google account inside Retail Store One's Settings at any time, delete hidden app data via <strong>Google Drive → Settings → Manage Apps → Retail Store One → Delete hidden app data</strong>, or revoke OAuth permissions at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">myaccount.google.com/permissions</a>.</li>
+      </ul>
+    </section>
+
+    <!-- 9. CHILDREN -->
+    <section id="children">
+      <h2>9. Children's Privacy</h2>
+      <p>
+        Retail Store One is a commercial retail point-of-sale and accounting application intended for business owners and authorized store personnel. It is not directed to children under the age of 13 (or the applicable age of digital consent in your jurisdiction), and we do not knowingly collect personal information from children.
+      </p>
+    </section>
+
+    <!-- 10. CHANGES & CONTACT -->
+    <section id="changes">
+      <h2>10. Changes to This Privacy Policy &amp; Contact Information</h2>
+      <p>
+        We may update this Privacy Policy from time to time to reflect new features, regulatory requirements, or platform security improvements. Any updates will be published on this page with a revised "Last Updated" date.
+      </p>
+      <p>
+        If you have any questions, privacy requests, or security inquiries regarding <strong>Retail Store One</strong> (<code>in.kiranapro.pos</code>), please contact the developer and repository maintainer:
+      </p>
+      <ul>
+        <li><strong>Application Name:</strong> Retail Store One (<code>in.kiranapro.pos</code>)</li>
+        <li><strong>Developer / Support Email:</strong> <a href="mailto:purushottamranaworld@gmail.com">purushottamranaworld@gmail.com</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Retail Store One</h3>
+        <p>Offline-First Indian Retail POS Billing, Multi-Category Inventory, GST Invoicing &amp; Udhaar Khata (<code>in.kiranapro.pos</code>).</p>
+        <p style="margin-top: 8px;">Contact: <a href="mailto:purushottamranaworld@gmail.com">purushottamranaworld@gmail.com</a></p>
+      </div>
+      <div class="footer-links">
+        <h3>Official Pages</h3>
+        <a href="./index.html">Application Home Page</a>
+        <a href="./privacy.html">Privacy Policy</a>
+        <a href="./terms.html">Terms of Service</a>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 Retail Store One (<code>in.kiranapro.pos</code>). All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
